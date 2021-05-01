@@ -1,21 +1,26 @@
-# WordPress
-*.log
-/wp-*.php
-/index.php
-/xmlrpc.php
-/license.txt
-/readme.html
-/sitemap.xml
-/sitemap.xml.gz
-
-/backup*
-
-wp-admin/
-wp-includes/
-
+# Application
+# ignore everything in the "wp-content" directory, except:
+# mu-plugins, plugins, and themes directories
 wp-content/*
+!wp-content/plugins/
 !wp-content/themes/
 wp-content/themes/*
+wp-config.php
+*.sql
+.htaccess
 
-!wp-content/plugins/
-wp-content/plugins/*
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# track these mu-plugins, plugins, and themes
+# add your own entries here
+!wp-content/themes/theme1/
+!wp-content/themes/theme1-child/
