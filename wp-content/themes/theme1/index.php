@@ -16,7 +16,7 @@
                   </div>
                   <div class="article-head">
                      <span class="article-date"><img src="<?php bloginfo('template_url'); ?>/images/articles-author.jpg" alt="Зображення автора" />
-                        <span class="article-author"><?php the_author(); ?></span> - <?php the_time('M jS, Y'); ?>
+                        <span class="article-author"><?php the_author(); ?></span> - <?php the_time('d.m.Y'); ?>
                      </span>
                      <span class="article-comments"><img src="<?php bloginfo('template_url'); ?>/images/articles-comment.jpg" alt="Зображення коментаря" />
                         <a href="<?php the_permalink(); ?>">

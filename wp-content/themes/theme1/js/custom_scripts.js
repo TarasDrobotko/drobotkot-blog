@@ -5,6 +5,9 @@ $(".nav-toggle").on("click", function (e) {
   $(this).toggleClass("nav-toggle-active");
 });
 
+// add title to scroll button up
+$("#wpfront-scroll-top-container img").prop("title", "Наверх");
+
 // add placeholder to subscriber input
 $('.tnp-field.tnp-field-email input[type="email"] ').attr({
   placeholder: "Ваш e-mail",
