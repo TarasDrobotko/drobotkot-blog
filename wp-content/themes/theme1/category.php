@@ -29,6 +29,7 @@
                      </span>
                   </div>
                   <h2 class="post-cycle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                  <?php get_template_part('templates/reading-time-views'); ?>
                   <?php the_excerpt(); ?>
                   <p class="permalink"><a href="<?php the_permalink(); ?>">Читати далі</a></p>
                </div>

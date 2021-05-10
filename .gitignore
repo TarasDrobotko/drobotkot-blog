@@ -1,6 +1,6 @@
 # Application
 # ignore everything in the "wp-content" directory, except:
-# mu-plugins, plugins, and themes directories
+# themes directory
 wp-content/*
 !wp-content/themes/
 wp-content/themes/*
@@ -20,7 +20,7 @@ wp-config.php
 # Composer
 /vendor
 
-# track these mu-plugins, plugins, and themes
+# track these themes
 # add your own entries here
 !wp-content/themes/theme1/
 !wp-content/themes/theme1-child/
