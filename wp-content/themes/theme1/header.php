@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="head-wrapper">
+    <?php /**<div class="head-wrapper">
         <div class="head">
             <div class="head-logo">
                 <?php if (is_front_page()) : ?>
@@ -36,6 +36,23 @@
         <?php endif; ?>
     </div>
     </div>
+    </div> **/ ?>
+    <div class="head-wrapper">
+        <div class="head clearfix">
+            <div class="head-logo">
+                <?php if (is_front_page()) : ?>
+                    <img src="<?php get_theme_logo(); ?>" alt="Logo" title="<?php _e('Логотип блогу', 'theme1'); ?>" />
+                <?php else : ?>
+                    <a href="/"><img src="<?php get_theme_logo(); ?>" alt="Logo" title="<?php _e('Логотип блогу', 'theme1'); ?>" /></a>
+                <?php endif; ?>
+            </div>
+            <div class="title-area">
+                <p class="site-title"><?php $name = get_bloginfo('name');
+                                        _e($name, 'theme1'); ?></p>
+                <p class="site-description"><?php $descr = get_bloginfo('description');
+                                            _e($descr, 'theme1'); ?></p>
+            </div>
+        </div>
     </div>
     <div class="menu-wrapper">
         <div class="nav-toggle"><span></span></div>
