@@ -21,7 +21,8 @@
         <div class="head">
             <div class="head-logo">
                 <?php if (is_front_page()) : ?>
-                    <img src="<?php get_theme_logo(); ?>" alt="Logo" title="Логотип блогу" /></div>
+                    <img src="<?php get_theme_logo(); ?>" alt="Logo" title="Логотип блогу" />
+            </div>
         <?php else : ?>
             <a href="/"><img src="<?php get_theme_logo(); ?>" alt="Logo" title="Логотип блогу" /></a>
         </div>
@@ -48,8 +49,9 @@
             );
             $menu = wp_nav_menu($args);
 
+            $main_page = __('Головна', 'theme1');
             if (!is_front_page()) {
-                $menu = preg_replace('~<li~', '<li><a href="' . home_url() . '" >Головна</a></li><li', $menu, 1);
+                $menu = preg_replace('~<li~', '<li><a href="' . home_url() . '" >' . $main_page . '</a></li><li', $menu, 1);
             }
             echo $menu;
             ?>

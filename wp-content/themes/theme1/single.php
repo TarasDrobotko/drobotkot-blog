@@ -17,18 +17,14 @@
                         <span><?php the_author(); ?></span> - <?php the_time('d.m.Y'); ?>
                      </span>
                      <span class="article-comments"><img src="<?php bloginfo('template_url'); ?>/images/articles-comment.jpg" alt="Зображення коментаря" />
-                        <?php
-                        plural_form(
-                           get_comments_number(),
-                           array('коментар', 'коментарі', 'коментарів')
-                        );
-                        ?>
+                        <?php plural_form(get_comments_number(), array(__('коментар', 'theme1'), __('коментарі', 'theme1'), __('коментарів', 'theme1'))); ?>
                      </span>
                   </div>
                   <h1><?php the_title(); ?></h1>
                   <?php get_template_part('templates/reading-time-views'); ?>
                   <?php the_content(); ?>
                </div>
+               <div class="recomended"><?php recommend() ?></div>
             <?php endwhile; ?>
          <?php endif; ?>
 

@@ -5,18 +5,18 @@ if (post_password_required()) {
 }
 $oddcomment = "graybox";
 ?>
-<?php if ($comments): ?>
+<?php if ($comments) : ?>
 
-   <?php $post_id = get_the_ID();
-    if(wp_count_comments($post_id)->approved): ?>
+    <?php $post_id = get_the_ID();
+    if (wp_count_comments($post_id)->approved) : ?>
         <h4 class="comments"><?php comments_number('Коментарі  %'); ?></h4>
-        <?php endif; ?>
-        <?php $args = array(
-            'avatar_size'       => 70,
-            'reply_text'       => 'Відповісти',
-            'callback'          => 'mytheme_comment',
-        );
-        ?>
+    <?php endif; ?>
+    <?php $args = array(
+        'avatar_size'       => 70,
+        'reply_text'       => __('Відповісти', 'theme1'),
+        'callback'          => 'mytheme_comment',
+    );
+    ?>
 
     <ul class="comments-list"><?php wp_list_comments($args); ?></ul>
     <div id="comment-nav-above">
@@ -40,11 +40,11 @@ $oddcomment = "graybox";
     <?php
     //structure of comments
     $args = array(
-        'comment_notes_before' => '<p class="comment-notes"><a id="reg" href="/wp-login.php">Ввійдіть</a> чи заповніть поля нижче. Ваш e-mail не буде опублікований. Обов\'язкові поля відмічені *</p>',
-        'comment_field'        => '<p class="comment-form-comment "><label for="comment" >' . 'Ваш коментар</label><br /> <textarea id="comment" name="comment" rows="8"  aria-required="true"></textarea></p>',
+        'comment_notes_before' => '<p class="comment-notes"><a id="reg" href="/wp-login.php">' . __('Ввійдіть', 'theme1') . '</a>' . __(' чи заповніть поля нижче. Ваш e-mail не буде опублікований. Обов\'язкові поля відмічені *', 'theme1') . '</p>',
+        'comment_field'        => '<p class="comment-form-comment "><label for="comment" >' . __('Ваш коментар', 'theme1') . '</label><br /> <textarea id="comment" name="comment" rows="8"  aria-required="true"></textarea></p>',
         'comment_notes_after'  => '',
         'id_submit'            => '',
-        'label_submit'         => __('Відправити'),
+        'label_submit'         => __('Відправити', 'theme1'),
     );
     comment_form($args);
     ?>

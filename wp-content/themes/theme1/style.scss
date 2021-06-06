@@ -1,9 +1,10 @@
 /*
 Theme Name: Theme 1
-Theme URI: https://drobotkot.ru
+Theme URI: http://drobotkot.s-host.net
 Description: Personal blog
 Author: Drobotko Taras
-Author URI: https://drobotkot.ru
+Author URI: http://drobotkot.s-host.net
+Text Domain: theme1
 Version: 1.0
 */
 
@@ -589,6 +590,48 @@ p.permalink a {
     left: 0;
     top: 0;
   }
+}
+
+/* related posts */
+.recomended {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto 15px;
+  h2 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  ul {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    li.recom-post {
+      width: calc((100% / 3) - 9px);
+      margin-right: 5px;
+      ul {
+        flex-direction: column;
+      }
+    }
+    li {
+      margin: 0 4px;
+      font-size: 16px;
+      color: #535353;
+      text-align: center;
+      font-weight: normal;
+      list-style: none;
+      &.recom-post-image img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+/* select languages */
+ul .lang-item img {
+  width: 16px;
+  height: 11px;
 }
 /* ol list */
 ol.ol-list-dec {
@@ -1339,6 +1382,15 @@ ul.list-style-disc li {
 }
 
 @media (max-width: 560px) {
+  /* related posts */
+  .recomended {
+    ul {
+      li.recom-post {
+        width: calc((100% / 2) - 9px);
+      }
+    }
+  }
+
   .wp-spaios-slider-wrap .nivo-caption .wp-spaios-title a,
   .wp-spaios-slider-wrap .wp-spaios-title a,
   .wp-spaios-slider-wrap .nivo-caption .wp-spaios-title a:hover,

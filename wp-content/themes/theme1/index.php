@@ -20,14 +20,14 @@
                      </span>
                      <span class="article-comments"><img src="<?php bloginfo('template_url'); ?>/images/articles-comment.jpg" alt="Зображення коментаря" />
                         <a href="<?php the_permalink(); ?>">
-                           <?php plural_form(get_comments_number(), array('коментар', 'коментарі', 'коментарів')); ?>
+                           <?php plural_form(get_comments_number(), array(__('коментар', 'theme1'), __('коментарі', 'theme1'), __('коментарів', 'theme1'))); ?>
                         </a>
                      </span>
                   </div>
                   <h2 class="post-cycle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                   <?php get_template_part('templates/reading-time-views'); ?>
                   <?php the_excerpt(); ?>
-                  <p class="permalink"><a href="<?php the_permalink(); ?>">Читати далі</a></p>
+                  <p class="permalink"><a href="<?php the_permalink(); ?>"><?php _e('Читати далі', 'theme1'); ?></a></p>
                </div>
 
             <?php endwhile; ?>

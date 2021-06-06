@@ -2,7 +2,7 @@
 <div class="content-wrapper">
    <div class="content-main">
       <div class="content">
-         <h1 class="search-result">Результати пошуку за <b>&laquo;<?php the_search_query() ?>&raquo;</b></h1>
+         <h1 class="search-result"><?php _e('Результати пошуку за', 'theme1'); ?> <b>&laquo;<?php the_search_query() ?>&raquo;</b></h1>
          <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
                <div class="article">
@@ -18,10 +18,7 @@
                         <span class="article-author"><?php the_author(); ?></span> - <?php the_time('d.m.Y'); ?>
                      </span>
                      <span class="article-comments"><img src="<?php bloginfo('template_url'); ?>/images/articles-comment.jpg" alt="Зображення коментаря" />
-                        <a href="#"><?php plural_form(
-                                       get_comments_number(),
-                                       array('коментар', 'коментарі', 'коментарів')
-                                    ); ?></a>
+                        <a href="#"> <?php plural_form(get_comments_number(), array(__('коментар', 'theme1'), __('коментарі', 'theme1'), __('коментарів', 'theme1'))); ?></a>
                      </span>
                   </div>
                   <h2 class="post-cycle"><a href="<?php the_permalink(); ?>"><?php
@@ -37,12 +34,12 @@
                   $excerpt = preg_replace('/(' . implode('|', $keys) . ')/iu', '<strong class="search_expt">\0</strong>', $excerpt);
                   echo $excerpt;
                   ?>
-                  <p><a href="<?php the_permalink(); ?>">Читати далі</a></p>
+                  <p><a href="<?php the_permalink(); ?>"><?php _e('Читати далі', 'theme1'); ?></a></p>
                </div>
 
             <?php endwhile; ?>
          <?php else : ?>
-            <p>За Вашим запитом нічого не знайдено.</p>
+            <p><?php _e('За Вашим запитом нічого не знайдено', 'theme1'); ?>.</p>
          <?php endif; ?>
 
          <?php get_template_part('templates/social-icons'); ?>

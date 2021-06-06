@@ -26,7 +26,22 @@ function load_style_script()
 	wp_localize_script('like_post', 'ajax_var', array(
 		'url' => admin_url('admin-ajax.php'),
 		'nonce' => wp_create_nonce('ajax-nonce')
-	));
+	)); ?>
+
+	<?php
+	$translation_array = array(
+		'placeholder' => __('Ваш e-mail', 'theme1'),
+		'title' => __('Заповніть це поле, будь ласка', 'theme1'),
+		'subscribe_heading' => __('Підписка на коментарі', 'theme1'),
+		'text_before_visitor_rating' => __('Натисніть, щоб оцінити цей пост!', 'theme1'),
+		'user_has_already_rated' => __('Ви вже оцінили цей пост', 'theme1'),
+		'text_after_visitor_rating_1' => __('Всього голосів: ', 'theme1'),
+		'text_after_visitor_rating_2' => __('Середня оцінка: ', 'theme1'),
+		'show_social_icons' => __('Показати соціальні іконки', 'theme1'),
+		'hide_social_icons' => __('Сховати соціальні іконки', 'theme1'),
+		'title_arrow_up' => __('Наверх', 'theme1')
+	);
+	wp_localize_script('custom-scripts', 'langvars', $translation_array);
 
 	wp_enqueue_style('default', get_template_directory_uri() . '/style.css');
 }
@@ -173,7 +188,7 @@ function mytheme_comment($comment, $args, $depth)
 	$GLOBALS['comment'] = $comment;
 	switch ($comment->comment_type):
 		case '':
-?>
+	?>
 			<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
 				<div id="comment-<?php comment_ID(); ?>">
 					<div id="comment_block">
@@ -209,109 +224,169 @@ function mytheme_comment($comment, $args, $depth)
 			<li class="post pingback">
 				<?php comment_author_link(); ?>
 				<?php edit_comment_link(__('Редагувати'), ' '); ?>
-	<?php
-			break;
-	endswitch;
-}
+				<?php
+				break;
+		endswitch;
+	}
 
-/*
+	/*
    banner
 */
-function banner_posts()
-{
-	register_post_type('banner', array(
-		'labels'             => array(
-			'name'               => 'Банери',
-			'singular_name'      => 'Банер',
-			'add_new'            => 'Добавити новий',
-			'add_new_item'       => 'Добавити новий банер',
-			'edit_item'          => 'Редагувати банер',
-			'new_item'           => 'Новий банер',
-			'view_item'          => 'Переглянути банер',
-			'search_items'       => 'Найти банер',
-			'not_found'          =>  'Банерів не знайдено',
-			'not_found_in_trash' => 'В кошику банерів не знайдено',
-			'parent_item_colon'  => '',
-			'menu_name'          => 'Банери'
+	function banner_posts()
+	{
+		register_post_type('banner', array(
+			'labels'             => array(
+				'name'               => 'Банери',
+				'singular_name'      => 'Банер',
+				'add_new'            => 'Добавити новий',
+				'add_new_item'       => 'Добавити новий банер',
+				'edit_item'          => 'Редагувати банер',
+				'new_item'           => 'Новий банер',
+				'view_item'          => 'Переглянути банер',
+				'search_items'       => 'Найти банер',
+				'not_found'          =>  'Банерів не знайдено',
+				'not_found_in_trash' => 'В кошику банерів не знайдено',
+				'parent_item_colon'  => '',
+				'menu_name'          => 'Банери'
 
-		),
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => true,
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array('title', 'thumbnail')
-	));
-}
-add_action('init', 'banner_posts');
+			),
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => true,
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'supports'           => array('title', 'thumbnail')
+		));
+	}
+	add_action('init', 'banner_posts');
 
-function plural_form($number, $after)
-{
-	$cases = array(2, 0, 1, 1, 1, 2);
-	echo $number . ' ' . $after[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
-}
-
-add_theme_support('title-tag');
-/**
- * Modify the document title for the search page
- */
-add_filter('pre_get_document_title', 'my_get_document_title', 999, 1);
-function my_get_document_title()
-{
-	if (is_search()) {
-		$title = sprintf(
-			'Результати пошуку &#8220;%s&#8221;',
-			get_search_query()
-		);
-		$title = $title + ' - ' + get_bloginfo('site');
+	function plural_form($number, $after)
+	{
+		$cases = array(2, 0, 1, 1, 1, 2);
+		echo $number . ' ' . $after[($number % 100 > 4 && $number % 100 < 20) ? 2 : $cases[min($number % 10, 5)]];
 	}
 
-	return $title;
-};
+	add_theme_support('title-tag');
+	/**
+	 * Modify the document title for the search page
+	 */
+	add_filter('pre_get_document_title', 'my_get_document_title', 999, 1);
+	function my_get_document_title()
+	{
+		if (is_search()) {
+			$title = sprintf(
+				'Результати пошуку &#8220;%s&#8221;',
+				get_search_query()
+			);
+			$title = $title + ' - ' + get_bloginfo('site');
+		}
 
-function estimated_reading_time()
-{
-	$post = get_post();
-	$postcnt = strip_tags($post->post_content);
-	$words = count(preg_split('/\s+/', $postcnt));
-	$minutes = floor($words / 120);
-	$seconds = floor($words % 120 / (120 / 60));
-	if (1 <= $minutes) {
-		$estimated_time = $minutes . ' хв на читання';
-	} else {
-		$estimated_time = $seconds . ' сек на читання';
-	}
-	echo $estimated_time;
-}
+		return $title;
+	};
 
-// views
-function getPostViews($postID)
-{
-	$count_key = 'post_views_count';
-	$count = get_post_meta($postID, $count_key, true);
-	if ($count == '') {
-		delete_post_meta($postID, $count_key);
-		add_post_meta($postID, $count_key, '0');
-		return "0";
+	function estimated_reading_time()
+	{
+		$post = get_post();
+		$postcnt = strip_tags($post->post_content);
+		$words = count(preg_split('/\s+/', $postcnt));
+		$minutes = floor($words / 120);
+		$seconds = floor($words % 120 / (120 / 60));
+		if (1 <= $minutes) {
+			$min_text = __(' хв на читання', 'theme1');
+			$estimated_time = $minutes . $min_text;
+		} else {
+			$sec_text = __(' сек на читання', 'theme1');
+			$estimated_time = $seconds . $sec_text;
+		}
+		echo $estimated_time;
 	}
-	return $count;
-}
 
-function setPostViews($postID)
-{
-	$count_key = 'post_views_count';
-	$count = get_post_meta($postID, $count_key, true);
-	if ($count == '') {
-		$count = 0;
-		delete_post_meta($postID, $count_key);
-		add_post_meta($postID, $count_key, '0');
-	} else {
-		$count++;
-		update_post_meta($postID, $count_key, $count);
+	// views
+	function getPostViews($postID)
+	{
+		$count_key = 'post_views_count';
+		$count = get_post_meta($postID, $count_key, true);
+		if ($count == '') {
+			delete_post_meta($postID, $count_key);
+			add_post_meta($postID, $count_key, '0');
+			return "0";
+		}
+		return $count;
 	}
-}
+
+	function setPostViews($postID)
+	{
+		$count_key = 'post_views_count';
+		$count = get_post_meta($postID, $count_key, true);
+		if ($count == '') {
+			$count = 0;
+			delete_post_meta($postID, $count_key);
+			add_post_meta($postID, $count_key, '0');
+		} else {
+			$count++;
+			update_post_meta($postID, $count_key, $count);
+		}
+	}
+
+	// recommend posts
+	function recommend()
+	{
+		global $post;
+		$categories = get_the_category($post->ID);
+		if ($categories) {
+			$category_ids = array();
+			foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+			$args = array(
+				'category__in' => $category_ids,
+				'post__not_in' => array($post->ID),
+				'showposts' => 5,
+				'caller_get_posts' => 1
+			);
+			$my_query = new wp_query($args);
+			if ($my_query->have_posts()) {
+				echo '<h2>Подібні записи</h2><ul>';
+				while ($my_query->have_posts()) {
+					$my_query->the_post();
+				?>
+			<li class="recom-post">
+				<ul>
+					<li class="recom-post-image">
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail(); ?></a>
+					</li>
+					<li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+				</ul>
+			</li>
+<?php
+				}
+				echo '</ul>';
+			}
+			wp_reset_query();
+		}
+	};
+
+	function get_theme_logo()
+	{
+		if (substr_count(get_theme_mod('logo', "/images/logo-3.png"), 'http') == 1) {
+			echo get_theme_mod('logo', "/images/logo-3.png");
+		} else {
+			bloginfo('template_url');
+			echo get_theme_mod('logo', "/images/logo-3.png");
+		}
+	}
+
+	add_action('after_setup_theme', 'my_theme_setup');
+	function my_theme_setup()
+	{
+		load_theme_textdomain('theme1', get_template_directory() . '/');
+	}
+
+	add_action('after_setup_theme', 'theme_register_nav_menu');
+	function theme_register_nav_menu()
+	{
+		register_nav_menu('top', 'Меню в шапці');
+	}
