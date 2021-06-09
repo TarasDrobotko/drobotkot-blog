@@ -1,0 +1,179 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-05 14:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.0; wp-5.3.6"
+
+#: 404.php:7
+msgid "Такої сторінки немає!"
+msgstr ""
+
+#: 404.php:7
+msgid "Перейти"
+msgstr ""
+
+#: 404.php:7
+msgid "на головну сторінку"
+msgstr ""
+
+#: single.php:20 index.php:23 search.php:21 category.php:22
+msgid "коментар"
+msgstr ""
+
+#: single.php:20 index.php:23 search.php:21 category.php:22
+msgid "коментарі"
+msgstr ""
+
+#: single.php:20 index.php:23 search.php:21 category.php:22
+msgid "коментарів"
+msgstr ""
+
+#: index.php:30 search.php:37 category.php:29
+msgid "Читати далі"
+msgstr ""
+
+#: sidebar.php:6
+msgid "Пошук ..."
+msgstr ""
+
+#: sidebar.php:15
+msgid "Тут віджети сайдбару"
+msgstr ""
+
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr ""
+
+#: footer.php:12
+msgid " Всі права захищені"
+msgstr ""
+
+#: footer.php:13
+msgid "Дизайн: Дроботько Тарас"
+msgstr ""
+
+#: footer.php:14
+msgid "За підтримки "
+msgstr ""
+
+#: search.php:5
+msgid "Результати пошуку за"
+msgstr ""
+
+#: search.php:42
+msgid "За Вашим запитом нічого не знайдено"
+msgstr ""
+
+#: header.php:52
+msgid "Головна"
+msgstr ""
+
+#: category.php:5
+msgid "Записи в категорії:"
+msgstr ""
+
+#: functions.php:33
+msgid "Ваш e-mail"
+msgstr ""
+
+#: functions.php:34
+msgid "Заповніть це поле, будь ласка"
+msgstr ""
+
+#: functions.php:35
+msgid "Підписка на коментарі"
+msgstr ""
+
+#: functions.php:36
+msgid "Натисніть, щоб оцінити цей пост!"
+msgstr ""
+
+#: functions.php:37
+msgid "Ви вже оцінили цей пост"
+msgstr ""
+
+#: functions.php:38
+msgid "Всього голосів: "
+msgstr ""
+
+#: functions.php:39
+msgid "Середня оцінка: "
+msgstr ""
+
+#: functions.php:40
+msgid "Показати соціальні іконки"
+msgstr ""
+
+#: functions.php:41
+msgid "Сховати соціальні іконки"
+msgstr ""
+
+#: functions.php:42
+msgid "Наверх"
+msgstr ""
+
+#: functions.php:300
+msgid " хв на читання"
+msgstr ""
+
+#: functions.php:303
+msgid " сек на читання"
+msgstr ""
+
+#: comments.php:16
+msgid "Відповісти"
+msgstr ""
+
+#: comments.php:43
+msgid "Ввійдіть"
+msgstr ""
+
+#: comments.php:43
+msgid ""
+" чи заповніть поля нижче. Ваш e-mail не буде опублікований. Обов'язкові поля "
+"відмічені *"
+msgstr ""
+
+#: comments.php:44
+msgid "Ваш коментар"
+msgstr ""
+
+#: comments.php:47
+msgid "Відправити"
+msgstr ""
+
+#. Name of the template
+msgid "My template for the page of the service"
+msgstr ""
+
+#: templates/reading-time-views.php:7
+msgid "Перегляди"
+msgstr ""
+
+#. Name of the theme
+msgid "Theme 1"
+msgstr ""
+
+#. Description of the theme
+msgid "Personal blog"
+msgstr ""
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "http://drobotkot.s-host.net"
+msgstr ""
+
+#. Author of the theme
+msgid "Drobotko Taras"
+msgstr ""

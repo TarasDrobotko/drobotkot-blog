@@ -52,13 +52,3 @@
    </div>
 </div>
 <?php get_footer(); ?>
-
-<div class="tnp tnp-subscription">
-   <form method="post" action="https://drobotkot.ru/?na=s" onsubmit="return newsletter_check(this)">
-
-      <input type="hidden" name="nlang" value="">
-      <div class="tnp-field tnp-field-email"><label>E-mail</label><input class="tnp-email" placeholder="<?php _e('Ваш е-mail', 'theme1'); ?>" type="email" name="ne" required></div>
-      <div class="tnp-field tnp-field-button"><input class="tnp-submit" type="submit" value="<?php _e('Підписатися', 'theme1'); ?>">
-      </div>
-   </form>
-</div>
